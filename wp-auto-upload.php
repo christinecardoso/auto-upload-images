@@ -100,8 +100,16 @@ class WpAutoUpload
             if ($uploader->validate() && $uploader->save()) {
                 $url = parse_url($uploader->url);
                 $base_url = $uploader->getHostUrl() == null ? null : "http://{$uploader->getHostUrl()}";
-                $image_url = $base_url . $url['path'];
-                $content = preg_replace('/'. preg_quote($image['url'], '/') .'/', $image_url, $content);
+                $orig_path = $url['path'];
+                $url_parts = explode( '?ig_cache_key', $orig_path);
+                $url_path = $url_parts[0];
+                $image_url = $base_url . $url_path;
+
+                $orig_img = $image['url'];
+                $orig_img_parts = explode( '?ig_cache_key', $orig_img);
+                $orig_image_url = $orig_img_parts[0];
+
+                $content = preg_replace('/'. preg_quote($orig_image_url, '/') .'/', $image_url, $content);
                 $content = preg_replace('/alt=["\']'. preg_quote($image['alt'], '/') .'["\']/', "alt='{$uploader->getAlt()}'", $content);
             }
         }
@@ -127,7 +135,8 @@ class WpAutoUpload
         }
         foreach ($urls as $index => &$url) {
             $images[$index]['alt'] = preg_match('/<img[^>]*alt=["\']([^"\']*)[^"\']*["\'][^>]*>/i', $url[0], $alt) ? $alt[1] : null;
-            $images[$index]['url'] = $url = $url[1];
+            $parts = explode( '?ig_cache_key', $url[1]);
+            $images[$index]['url'] = $url = $parts[0];
         }
         foreach (array_unique($urls) as $index => $url) {
             $unique_array[] = $images[$index];
