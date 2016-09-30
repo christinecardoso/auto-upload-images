@@ -1,0 +1,24 @@
+{
+    "name": "christinecardoso/auto-upload-images",
+    "description": "Automatically detect external images in the Wordpress post content and uploading images to your site and adding to the media library and finally replace image urls with new urls. Forked from http://wordpress.org/plugins/auto-upload-images/,
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=5.5"
+    },
+    "version": "1.0.0",
+    "keywords": ["wordpress"],
+    "homepage": "https://github.com/christinecardoso/auto-upload-images",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christine Cardoso",
+            "email": "christine@digimix.co",
+            "homepage": "https://digimix.co"
+        },
+        {
+	        "name": "Michael Salafia",
+            "email": "michael@digimix.co",
+            "homepage": "https://digimix.co"
+        }
+    ]
+}
