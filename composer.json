@@ -1,6 +1,6 @@
 {
     "name": "christinecardoso/auto-upload-images",
-    "description": "Automatically detect external images in the Wordpress post content and uploading images to your site and adding to the media library and finally replace image urls with new urls. Forked from http://wordpress.org/plugins/auto-upload-images/,
+    "description": "Automatically detect external images in the Wordpress post content and uploading images to your site and adding to the media library and finally replace image urls with new urls. Forked from http://wordpress.org/plugins/auto-upload-images/",
     "type": "wordpress-plugin",
     "require": {
         "php": ">=5.5"
